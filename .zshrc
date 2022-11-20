@@ -1,11 +1,3 @@
-# .zshrc
-# Customized to be used on Arch Linux
-# Dependencies:
-#   * Powerlevel10k
-#   * zsh-syntax-highlighting
-#   * zsh-history-substring-search
-#   * some nice font :)
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -35,6 +27,9 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
+
+export PATH="~/.cargo/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
 
 export EDITOR=/usr/bin/nano
 export VISUAL=/usr/bin/nano
@@ -79,6 +74,12 @@ alias ls="ls --color -a -F"
 
 
 #-----------------------------
+# Paru + Flatpak Update
+#-----------------------------
+
+alias pfup="paru && flatpak update"
+
+#-----------------------------
 # Cat colors
 #-----------------------------
 
@@ -95,6 +96,8 @@ colors
 # enable substitution for prompt
 setopt prompt_subst
 
+export MAKEFLAGS="-j $(( $(nproc) - 2 ))"
+
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
@@ -110,10 +113,13 @@ export NEOVIDE_MULTIGRID=1
 ## Plugins section: Enable fish style features
 
 # Use syntax highlighting
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Use autocomplete
+# source ~/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Use history substring search
-source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
@@ -122,11 +128,11 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+source ~/zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
