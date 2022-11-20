@@ -13,7 +13,7 @@ This setup requires:
 ## Installation
 
 ```
-$ cd ~
-$ git clone git@github.com:AMNatty/.dotfiles.git --recursive --shallow-submodules
-$ ./install.sh
+cd ~
+git clone git@github.com:AMNatty/.dotfiles.git --recursive --shallow-submodules
+./.dotfiles/install.sh
 ```
