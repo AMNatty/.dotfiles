@@ -113,13 +113,13 @@ export NEOVIDE_MULTIGRID=1
 ## Plugins section: Enable fish style features
 
 # Use syntax highlighting
-source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.dotfiles/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Use autocomplete
 # source ~/zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
 # Use history substring search
-source ~/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.dotfiles/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # bind UP and DOWN arrow keys to history substring search
 zmodload zsh/terminfo
@@ -128,11 +128,11 @@ bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-source ~/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.dotfiles/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 
-source ~/zsh/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.dotfiles/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
