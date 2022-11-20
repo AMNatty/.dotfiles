@@ -50,6 +50,11 @@ set number
 set whichwrap=<,>,[,]
 highlight LineNr ctermfg=darkgray
 
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-i> :wincmd j<CR>
+nmap <silent> <c-j> :wincmd h<CR>
+nmap <silent> <c-l> :wincmd l<CR>
+
 nnoremap <C-t> <CMD>NERDTreeToggle<CR>
 
 " Use <c-space> to trigger completion.
