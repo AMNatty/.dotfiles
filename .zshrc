@@ -32,7 +32,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 
-if [[ -e nvim ]]; then
+if ! (command -v nvim >"/dev/null"); then
     export EDITOR=/usr/bin/nano
     export VISUAL=/usr/bin/nano
 else

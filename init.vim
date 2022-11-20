@@ -24,7 +24,7 @@ nnoremap <silent> <C-S> <CMD>w<CR>
 inoremap <silent> <C-S> <ESC><CMD>w<CR>
 " nnoremap <silent> <C-w> <CMD>BufferClose<CR>
 
-" Map Ctrl-Backspace to delete insert mode.
+" Map Ctrl-Backspace to delete words in insert mode.
 nnoremap <C-BS> <C-w>
 inoremap <C-BS> <C-O>db
 
