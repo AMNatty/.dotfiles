@@ -44,6 +44,7 @@ set autoindent
 set cpoptions+=I
 set nowrap
 set clipboard+=unnamedplus
+set mouse=a
 
 set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h12
 set number
