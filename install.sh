@@ -3,13 +3,7 @@ set -e
 
 echo -n "Checking for Zsh: "
 if ! (command -v zsh); then
-    echo "Neovim not installed!"
-    exit 1
-fi
-
-echo -n "Checking for Neovim: "
-if ! (command -v nvim); then
-    echo "Zsh is not installed!"
+    echo "Zsh not installed!"
     exit 1
 fi
 
@@ -32,13 +26,34 @@ ln -sf ~/.dotfiles/.zshrc ~/.zshrc
 echo "Creating symlink: ~/.p10k.zsh -> ~/.dotfiles/.p10k"
 ln -sf ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 
-mkdir -p ~/.config/nvim
-echo "Creating symlink: ~/.config/nvim/init.vim -> ~/.dotfiles/init.vim"
-ln -sf ~/.dotfiles/init.vim ~/.config/nvim/init.vim
+install_neovim() {
+    mkdir -p ~/.config/nvim
+    echo "Creating symlink: ~/.config/nvim/init.vim -> ~/.dotfiles/init.vim"
+    ln -sf ~/.dotfiles/init.vim ~/.config/nvim/init.vim
 
-echo ""
-echo "Updating Neovim plugins..."
+    echo ""
+    echo "Updating Neovim plugins..."
 
-nvim --headless -c "PlugUpdate" -c "qall"
+    if (command -v pacman >"/dev/null"); then
+        echo "Checking for wl-clipboard:"
+        if ! (pacman -Qs wl-clipboard); then
+            echo "wl-clipboard not detected, please install it for clipboard support!"
+        fi
+    fi
+    nvim --headless -c "PlugUpdate" -c "qall"
+}
+
+echo -n "Checking for Neovim: "
+if ! (command -v nvim); then
+    echo "Neovim not installed!"
+
+    read -p "Do you wish to install the Neovim configuration anyway? [y/N] " nvconf
+    case $nvconf in
+        [Yy]* ) install_neovim ;;
+        * ) ;;
+    esac
+else
+    install_neovim
+fi
 
 echo "Done"

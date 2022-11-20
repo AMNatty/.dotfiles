@@ -2,6 +2,7 @@ call plug#begin()
 
 Plug 'gpanders/editorconfig.nvim'
 
+
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 
@@ -40,6 +41,7 @@ set smartindent
 set autoindent
 set cpoptions+=I
 set nowrap
+set clipboard+=unnamedplus
 
 set guifont=CaskaydiaCove\ Nerd\ Font\ Mono:h12
 set number

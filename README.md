@@ -12,4 +12,8 @@ This setup requires:
 
 ## Installation
 
-Run `./install.sh`
+```
+$ cd ~
+$ git clone git@github.com:AMNatty/.dotfiles.git --recursive --shallow-submodules
+$ ./install.sh
+```
