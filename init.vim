@@ -1,3 +1,5 @@
+source ~/.dotfiles/vim-plug/plug.vim
+
 call plug#begin()
 
 Plug 'gpanders/editorconfig.nvim'
