@@ -28,11 +28,17 @@ HISTFILE=~/.zhistory
 HISTSIZE=1000
 SAVEHIST=500
 
-export PATH="~/.cargo/bin:$PATH"
-export PATH="~/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts:$PATH"
 
-export EDITOR=/usr/bin/nano
-export VISUAL=/usr/bin/nano
+if [[ -e nvim ]]; then
+    export EDITOR=/usr/bin/nano
+    export VISUAL=/usr/bin/nano
+else
+    export EDITOR="$(which nvim)"
+    export VISUAL="$(which nvim)"
+fi
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 

@@ -17,7 +17,7 @@ case $cont in
 esac
 
 ln -sf ~/.dotfiles/.zshrc ~/.zshrc
-ln -sf ~/.dotfiles/.p10k ~/.p10k.zsh
+ln -sf ~/.dotfiles/.p10k.zsh ~/.p10k.zsh
 
 mkdir -p ~/.config/nvim
 ln -sf ~/.dotfiles/init.vim ~/.config/nvim/init.vim
