@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -e
+
+if [ "$#" -ne 3 ]; then
+    echo "Expected 3 parameters: <input_png> <input_gif> <output_gif>"
+    exit 1
+fi
+
+convert -layers composite $1 null: $2 -layers optimize -gravity center $3
